@@ -110,6 +110,9 @@ module.exports = (env) => {
                     },
                     // 把 node_modules 中的一个库单独拆出来
                     checkbox_module: {
+                        // 有的库小于 20kb 不会被单独拆出来，因为默认 minSize 值为 20000 (bytes)
+                        // 所以如果你也想拆出来就需要降低 miniSize
+                        minSize: 0,
                         test: /[\\/]node_modules[\\/]react-native-check-box[\\/]/,
                         name: 'checkbox_module',
                         priority: -8,
