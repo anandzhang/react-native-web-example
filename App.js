@@ -5,6 +5,8 @@ import CheckBox from 'react-native-check-box'
 import Sound from 'react-native-sound'
 import Toast from 'react-native-easy-toast'
 
+const music = require('./music.mp3')
+
 const App = () => {
   const [checked, setChecked] = useState(false)
   const toast = useRef(null)
@@ -12,14 +14,13 @@ const App = () => {
   const changeChecked = () => setChecked(!checked)
 
   const playMusic = () => {
-    toast.current.show('Hello, Anand\'s Blog')
-    const sound = new Sound('music.mp3', Sound.MAIN_BUNDLE, (error) => {
+    toast.current.show('Play Music')
+    const sound = new Sound(music, (error) => {
       if (error) {
         console.log('failed to load the sound', error)
         return
       }
 
-      // Play the sound with an onEnd callback
       sound.play((success) => {
         if (success) {
           console.log('successfully finished playing')

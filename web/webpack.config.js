@@ -126,7 +126,7 @@ module.exports = (env) => {
         resolve: {
             alias: {
                 'react-native$': 'react-native-web',
-                'react-native-sound': resolvePath('polyfills/Empty.js')
+                'react-native-sound': resolvePath('polyfills/Sound.js')
             },
             // 优先使用 .web.js 后缀的文件
             extensions: ['.web.js', '.js'],
